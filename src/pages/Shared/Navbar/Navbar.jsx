@@ -37,7 +37,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="btn bg-[#FF944B] text-white border-0 hover:bg-[#f06b12]" to="/login">Login</Link>
+                <Link className="btn bg-[#FF944B] text-white border-0 hover:bg-[#4499B3]" to="/login">Login</Link>
             </div>
         </div>
     );

@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <div>
             <footer>
-                <div className="footer p-10 bg-base-200 text-base-content">
+                <div className="footer p-10 bg-[#FFDFC9] text-base-content">
                     <div className="my-auto text-center">
                         <img className="mr-3 ml-9" width={80} src="https://i.ibb.co/Cn29qsD/drawing.png" alt="" />
                         <p className="text-xl font-bold uppercase">Pro Drawing</p>
@@ -38,7 +38,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="footer-center p-4 bg-base-200 text-base-content">
+                <div className="footer-center p-4 bg-[#FFDFC9] text-base-content">
                     <div>
                         <p>Copyright © 2023 - All right reserved by Pro Drawing Industries Ltd</p>
                     </div>
