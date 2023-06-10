@@ -16,7 +16,7 @@ const Navbar = () => {
         </li>
     </>
     return (
-        <div className="navbar fixed z-10 bg-opacity-30 bg-[#FF944B] text-gray-70000 max-w-7xl">
+        <div className="navbar fixed z-10 bg-opacity-30 bg-[#4499B3] text-gray-70000 max-w-screen-xl">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -37,7 +37,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="btn bg-[#FF944B] text-white border-0 hover:bg-[#4499B3]" to="/login">Login</Link>
+                <Link className="btn hover:bg-[#FF944B] text-white border-0 bg-[#4499B3]" to="/login">Login</Link>
             </div>
         </div>
     );

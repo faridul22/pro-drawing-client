@@ -20,13 +20,13 @@ const PopularClasses = () => {
                     </figure>
                     <div className="card-body text-center">
                         <h2 className="text-2xl my-2">Anatomical Drawing</h2>
-                        <h4 className="text-xl font-semibold"><span className="text-[#FF944B]">Instructor:</span> Farjana</h4>
+                        <h4 className="text-xl font-semibold"><span className="text-[#4499B3]">Instructor:</span> Farjana</h4>
                         <div className="flex justify-between text-center my-5">
-                            <p className="font-semibold"><span className="text-[#FF944B]">Available:</span> seats</p>
-                            <p className="font-semibold"><span className="text-[#FF944B]">Price:</span> $120</p>
+                            <p className="font-semibold"><span className="text-[#4499B3]">Available:</span> seats</p>
+                            <p className="font-semibold"><span className="text-[#4499B3]">Price:</span> $120</p>
                         </div>
                         <div className="my-2 mx-auto">
-                            <button className="btn bg-[#FF944B] text-white border-0 hover:bg-[#4499B3]">Select Now</button>
+                            <button className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Select Now</button>
                         </div>
                     </div>
                 </div>
@@ -36,13 +36,13 @@ const PopularClasses = () => {
                     </figure>
                     <div className="card-body text-center">
                         <h2 className="text-2xl my-2">Anatomical Drawing</h2>
-                        <h4 className="text-xl font-semibold"><span className="text-[#FF944B]">Instructor:</span> Farjana</h4>
+                        <h4 className="text-xl font-semibold"><span className="text-[#4499B3]">Instructor:</span> Farjana</h4>
                         <div className="flex justify-between text-center my-5">
-                            <p className="font-semibold"><span className="text-[#FF944B]">Available:</span> seats</p>
-                            <p className="font-semibold"><span className="text-[#FF944B]">Price:</span> $120</p>
+                            <p className="font-semibold"><span className="text-[#4499B3]">Available:</span> seats</p>
+                            <p className="font-semibold"><span className="text-[#4499B3]">Price:</span> $120</p>
                         </div>
                         <div className="my-2 mx-auto">
-                            <button className="btn bg-[#FF944B] text-white border-0 hover:bg-[#4499B3]">Select Now</button>
+                            <button className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Select Now</button>
                         </div>
                     </div>
                 </div>
@@ -52,13 +52,13 @@ const PopularClasses = () => {
                     </figure>
                     <div className="card-body text-center">
                         <h2 className="text-2xl my-2">Anatomical Drawing</h2>
-                        <h4 className="text-xl font-semibold"><span className="text-[#FF944B]">Instructor:</span> Farjana</h4>
+                        <h4 className="text-xl font-semibold"><span className="text-[#4499B3]">Instructor:</span> Farjana</h4>
                         <div className="flex justify-between text-center my-5">
-                            <p className="font-semibold"><span className="text-[#FF944B]">Available:</span> seats</p>
-                            <p className="font-semibold"><span className="text-[#FF944B]">Price:</span> $120</p>
+                            <p className="font-semibold"><span className="text-[#4499B3]">Available:</span> seats</p>
+                            <p className="font-semibold"><span className="text-[#4499B3]">Price:</span> $120</p>
                         </div>
                         <div className="my-2 mx-auto">
-                            <button className="btn bg-[#FF944B] text-white border-0 hover:bg-[#4499B3]">Select Now</button>
+                            <button className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Select Now</button>
                         </div>
                     </div>
                 </div>
@@ -68,13 +68,13 @@ const PopularClasses = () => {
                     </figure>
                     <div className="card-body text-center">
                         <h2 className="text-2xl my-2">Anatomical Drawing</h2>
-                        <h4 className="text-xl font-semibold"><span className="text-[#FF944B]">Instructor:</span> Farjana</h4>
+                        <h4 className="text-xl font-semibold"><span className="text-[#4499B3]">Instructor:</span> Farjana</h4>
                         <div className="flex justify-between text-center my-5">
-                            <p className="font-semibold"><span className="text-[#FF944B]">Available:</span> seats</p>
-                            <p className="font-semibold"><span className="text-[#FF944B]">Price:</span> $120</p>
+                            <p className="font-semibold"><span className="text-[#4499B3]">Available:</span> seats</p>
+                            <p className="font-semibold"><span className="text-[#4499B3]">Price:</span> $120</p>
                         </div>
                         <div className="my-2 mx-auto">
-                            <button className="btn bg-[#FF944B] text-white border-0 hover:bg-[#4499B3]">Select Now</button>
+                            <button className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Select Now</button>
                         </div>
                     </div>
                 </div>
@@ -84,13 +84,13 @@ const PopularClasses = () => {
                     </figure>
                     <div className="card-body text-center">
                         <h2 className="text-2xl my-2">Anatomical Drawing</h2>
-                        <h4 className="text-xl font-semibold"><span className="text-[#FF944B]">Instructor:</span> Farjana</h4>
+                        <h4 className="text-xl font-semibold"><span className="text-[#4499B3]">Instructor:</span> Farjana</h4>
                         <div className="flex justify-between text-center my-5">
-                            <p className="font-semibold"><span className="text-[#FF944B]">Available:</span> seats</p>
-                            <p className="font-semibold"><span className="text-[#FF944B]">Price:</span> $120</p>
+                            <p className="font-semibold"><span className="text-[#4499B3]">Available:</span> seats</p>
+                            <p className="font-semibold"><span className="text-[#4499B3]">Price:</span> $120</p>
                         </div>
                         <div className="my-2 mx-auto">
-                            <button className="btn bg-[#FF944B] text-white border-0 hover:bg-[#4499B3]">Select Now</button>
+                            <button className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Select Now</button>
                         </div>
                     </div>
                 </div>
@@ -100,13 +100,13 @@ const PopularClasses = () => {
                     </figure>
                     <div className="card-body text-center">
                         <h2 className="text-2xl my-2">Anatomical Drawing</h2>
-                        <h4 className="text-xl font-semibold"><span className="text-[#FF944B]">Instructor:</span> Farjana</h4>
+                        <h4 className="text-xl font-semibold"><span className="text-[#4499B3]">Instructor:</span> Farjana</h4>
                         <div className="flex justify-between text-center my-5">
-                            <p className="font-semibold"><span className="text-[#FF944B]">Available:</span> seats</p>
-                            <p className="font-semibold"><span className="text-[#FF944B]">Price:</span> $120</p>
+                            <p className="font-semibold"><span className="text-[#4499B3]">Available:</span> seats</p>
+                            <p className="font-semibold"><span className="text-[#4499B3]">Price:</span> $120</p>
                         </div>
                         <div className="my-2 mx-auto">
-                            <button className="btn bg-[#FF944B] text-white border-0 hover:bg-[#4499B3]">Select Now</button>
+                            <button className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Select Now</button>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <div>
             <footer>
-                <div className="footer p-10 bg-opacity-30 bg-[#FFDFC9] text-base-content">
+                <div className="footer p-10 bg-opacity-30 bg-[#4499B3] text-base-content">
                     <div className="my-auto text-center">
                         <img className="mr-3 ml-9" width={80} src="https://i.ibb.co/Cn29qsD/drawing.png" alt="" />
                         <p className="text-xl font-bold uppercase">Pro Drawing</p>
@@ -33,12 +33,12 @@ const Footer = () => {
                             </label>
                             <div className="relative">
                                 <input type="email" placeholder="username@site.com" className="input input-bordered w-full sm:pr-5 lg:pr-16" />
-                                <button className="btn bg-[#FF944B] text-white border-0 hover:bg-[#4499B3] absolute top-0 right-0 rounded-l-none">Subscribe</button>
+                                <button className="btn hover:bg-[#FF944B] text-white border-0 bg-[#4499B3] absolute top-0 right-0 rounded-l-none">Subscribe</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="footer-center p-4 bg-opacity-30 bg-[#FFDFC9] text-base-content">
+                <div className="footer-center p-4 bg-opacity-30 bg-[#4499B3] text-base-content">
                     <div>
                         <p>Copyright © 2023 - All right reserved by Pro Drawing Industries Ltd</p>
                     </div>
