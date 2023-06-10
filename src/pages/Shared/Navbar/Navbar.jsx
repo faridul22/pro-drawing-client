@@ -16,7 +16,7 @@ const Navbar = () => {
         </li>
     </>
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar fixed z-10 bg-opacity-30 bg-black text-white max-w-7xl">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -26,7 +26,8 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <div className="btn btn-ghost normal-case text-xl">
+                <div className="text-2xl font-bold uppercase flex justify-center items-center py-0 h-1/4">
+                    <img className="mr-3" width={80} src="https://i.ibb.co/Cn29qsD/drawing.png" alt="" />
                     <Link to="/">Pro Drawing</Link>
                 </div>
             </div>
@@ -36,7 +37,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="btn" to="/login">Login</Link>
+                <Link className="btn bg-[#FF944B] text-white border-0 hover:bg-[#f06b12]" to="/login">Login</Link>
             </div>
         </div>
     );

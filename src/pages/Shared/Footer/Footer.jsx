@@ -1,29 +1,30 @@
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
     return (
         <div>
             <footer>
                 <div className="footer p-10 bg-base-200 text-base-content">
-                    <div>
-                        <span className="footer-title">Services</span>
-                        <a className="link link-hover">Branding</a>
-                        <a className="link link-hover">Design</a>
-                        <a className="link link-hover">Marketing</a>
-                        <a className="link link-hover">Advertisement</a>
+                    <div className="my-auto text-center">
+                        <img className="mr-3 ml-9" width={80} src="https://i.ibb.co/Cn29qsD/drawing.png" alt="" />
+                        <p className="text-xl font-bold uppercase">Pro Drawing</p>
                     </div>
                     <div>
-                        <span className="footer-title">Company</span>
-                        <a className="link link-hover">About us</a>
-                        <a className="link link-hover">Contact</a>
-                        <a className="link link-hover">Jobs</a>
-                        <a className="link link-hover">Press kit</a>
+                        <span className="footer-title">Social Link</span>
+                        <a className="flex items-center link link-hover"><FaFacebook className='mr-2' /> <span>Facebook</span></a>
+                        <a className="flex items-center link link-hover"><FaTwitter className='mr-2' /> <span>Twitter</span></a>
+                        <a className="flex items-center link link-hover"><FaInstagram className='mr-2' /> <span>Instagram</span></a>
+                        <a className="flex items-center link link-hover"><FaLinkedin className='mr-2' /> <span>LinkedIn</span></a>
                     </div>
                     <div>
-                        <span className="footer-title">Legal</span>
-                        <a className="link link-hover">Terms of use</a>
-                        <a className="link link-hover">Privacy policy</a>
-                        <a className="link link-hover">Cookie policy</a>
+                        <span className="footer-title">Office Address</span>
+                        <a className="link link-hover">Mirpur-2, Hosen Market</a>
+                        <a className="link link-hover">2nd floor,Left Side</a>
+                        <a className="link link-hover">Road-42/43,Asia market north</a>
+                        <a className="link link-hover">Dhaka, Bangladesh</a>
                     </div>
+
+
                     <div className="md:w-1/2">
                         <span className="footer-title">Newsletter</span>
                         <div className="form-control w-80">
@@ -39,7 +40,7 @@ const Footer = () => {
                 </div>
                 <div className="footer-center p-4 bg-base-200 text-base-content">
                     <div>
-                        <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+                        <p>Copyright © 2023 - All right reserved by Pro Drawing Industries Ltd</p>
                     </div>
                 </div>
             </footer>
