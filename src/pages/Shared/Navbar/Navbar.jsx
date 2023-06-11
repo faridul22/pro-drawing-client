@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider/AuthProvider";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
+
     const navItems = <>
         <li>
             <Link to="/">Home</Link>
@@ -11,12 +15,19 @@ const Navbar = () => {
         <li>
             <Link to="/classes">Classes</Link>
         </li>
-        <li>
+        {user && <li>
             <Link to="/dashboard">Dashboard</Link>
-        </li>
+        </li>}
     </>
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => { console.log(error) })
+    }
+
     return (
-        <div className="navbar fixed z-10 bg-opacity-30 bg-[#4499B3] text-gray-70000 max-w-screen-xl">
+        <div className="navbar fixed z-10 bg-opacity-30 bg-[#4499B3] text-gray-70000 max-w-screen-xl rounded-md">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -37,7 +48,19 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="btn hover:bg-[#FF944B] text-white border-0 bg-[#4499B3]" to="/login">Login</Link>
+                {
+                    user ? <>
+
+                        <div className="avatar">
+                            <div className="w-[50px] rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                <img title={user?.displayName} src={user?.photoURL} />
+                            </div>
+                        </div>
+                        <button onClick={handleLogOut} className="btn hover:bg-[#FF944B] text-white border-0 bg-[#4499B3] mx-5 normal-case">LogOut</button>
+                    </> : <>
+                        <Link className="btn hover:bg-[#FF944B] text-white border-0 mx-5 bg-[#4499B3]" to="/login">Login</Link>
+                    </>
+                }
             </div>
         </div>
     );
