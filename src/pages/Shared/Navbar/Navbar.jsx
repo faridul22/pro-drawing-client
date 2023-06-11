@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider/AuthProvider";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -27,7 +28,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="navbar fixed z-10 bg-opacity-30 bg-[#4499B3] text-gray-70000 max-w-screen-xl rounded-md">
+        <div className="navbar fixed z-10 bg-opacity-30 bg-[#4499B3] text-gray-70000 max-w-screen-xl rounded-md px-5">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -51,12 +52,12 @@ const Navbar = () => {
                 {
                     user ? <>
 
+                        <button onClick={handleLogOut} className="btn hover:bg-[#FF944B] text-white border-0 bg-[#4499B3] mx-5 normal-case">LogOut</button>
                         <div className="avatar">
                             <div className="w-[50px] rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img title={user?.displayName} src={user?.photoURL} />
+                                <img title={user?.displayName} src={user.photoURL ? user.photoURL : <FaUserCircle />} />
                             </div>
                         </div>
-                        <button onClick={handleLogOut} className="btn hover:bg-[#FF944B] text-white border-0 bg-[#4499B3] mx-5 normal-case">LogOut</button>
                     </> : <>
                         <Link className="btn hover:bg-[#FF944B] text-white border-0 mx-5 bg-[#4499B3]" to="/login">Login</Link>
                     </>
