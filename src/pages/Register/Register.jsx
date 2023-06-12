@@ -145,7 +145,7 @@ const Register = () => {
                                     <input className="btn hover:bg-[#FF944B] text-white border-0 bg-[#4499B3] mx-5 normal-case" type="submit" value="Register Now" />
                                 </div>
                                 <label className="label">
-                                    <p className='text-center text-yellow-400 font-medium'><small>Already have an Account? <Link to="/login">Login Now </Link></small></p>
+                                    <p className='text-center text-gray-500 font-medium'><small>Already have an Account? <Link to="/login"><span className="hover:text-blue-600 text-blue-500">Login Now</span> </Link></small></p>
                                 </label>
                             </form>
                             <SocialLogin></SocialLogin>

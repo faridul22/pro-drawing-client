@@ -14,21 +14,20 @@ const SocialLogin = () => {
         googleSignIn()
             .then((result) => {
                 const loggedInUser = result.user;
-                console.log(loggedInUser)
                 navigate(from, { replace: true });
-                // const savedUser = { name: loggedInUser.displayName, email: loggedInUser.email }
-                // fetch('http://localhost:5000/users', {
-                //     method: "POST",
-                //     headers: {
-                //         'content-type': 'application/json'
-                //     },
-                //     body: JSON.stringify(savedUser)
-                // })
+                const savedUser = { name: loggedInUser.displayName, email: loggedInUser.email }
+                fetch('http://localhost:5000/users', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(savedUser)
+                })
 
-                //     .then(res => res.json())
-                //     .then(() => {
-                //         navigate(from, { replace: true });
-                //     })
+                    .then(res => res.json())
+                    .then(() => {
+                        navigate(from, { replace: true });
+                    })
             })
             .catch()
     }

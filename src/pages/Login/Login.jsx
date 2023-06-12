@@ -85,10 +85,10 @@ const Login = () => {
 
                                 {/* TODO: Make button disabled */}
                                 <div className="form-control mt-6">
-                                    <input disabled={false} className="btn btn-primary" type="submit" value="Login" />
+                                    <input disabled={false} className="btn hover:bg-[#FF944B] text-white border-0 bg-[#4499B3] mx-5 normal-case" type="submit" value="Login" />
                                 </div>
                                 <label className="label">
-                                    <p className='text-center text-yellow-400 font-medium'><small>New here? <Link to="/register">Create a New Account</Link></small></p>
+                                    <p className='text-center text-gray-500-400 font-medium'><small>New here? <Link to="/register"><span className='hover:text-blue-700 text-blue-600'>Create a New Account</span></Link></small></p>
                                 </label>
                             </form>
                             <SocialLogin></SocialLogin>
