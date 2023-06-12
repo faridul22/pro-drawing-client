@@ -2,10 +2,12 @@ import { NavLink, Outlet } from "react-router-dom";
 import Navbar from "../pages/Shared/Navbar/Navbar";
 import Footer from "../pages/Shared/Footer/Footer";
 import { FaBookReader, FaBookmark, FaMoneyCheckAlt } from "react-icons/fa";
+import useAllUsers from "../hooks/useAllUsers";
 
 
 const Dashboard = () => {
-
+    const [allUsers, refetch] = useAllUsers();
+    console.log(allUsers)
     const isAdmin = true;
     const isInstructors = false;
     const isStudent = false;
