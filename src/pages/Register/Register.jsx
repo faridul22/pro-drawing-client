@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 
 
@@ -17,7 +18,7 @@ const Register = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const onSubmit = data => {
         setError("")
@@ -33,34 +34,30 @@ const Register = () => {
 
                 updateUser(data.name, data.photoURL)
                     .then(() => {
-                        navigate(from, { replace: true });
 
-                        // const savedUser = { name: data.name, email: data.email }
-                        // fetch('http://localhost:5000/users', {
-                        //     method: "POST",
-                        //     headers: {
-                        //         'content-type': 'application/json'
-                        //     },
-                        //     body: JSON.stringify(savedUser)
-                        // })
+                        const savedUser = { name: data.name, email: data.email }
+                        fetch('http://localhost:5000/users', {
+                            method: "POST",
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(savedUser)
+                        })
 
-                        //     .then(res => res.json())
-                        //     .then(data => {
-                        //         if (data.insertedId) {
-
-                        //             reset();
-
-                        //             Swal.fire({
-                        //                 position: 'center',
-                        //                 icon: 'success',
-                        //                 title: 'User created successfully',
-                        //                 showConfirmButton: false,
-                        //                 timer: 1500
-                        //             })
-
-                        //             navigate(from, { replace: true });
-                        //         }
-                        //     })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'center',
+                                        icon: 'success',
+                                        title: 'User created successfully',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                    navigate(from, { replace: true });
+                                }
+                            })
 
                     })
                     .catch(error => console.log(error))
