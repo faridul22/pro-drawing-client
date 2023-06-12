@@ -5,6 +5,11 @@ import Login from "../pages/Login/Login";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Register from "../pages/Register/Register";
 import AllClasses from "../pages/AllClasses/AllClasses";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layouts/Dashboard";
+import MySelectedClasses from "../pages/Dashboard/StudentDashboard/MySelectedClasses";
+import MyEnrolledClasses from "../pages/Dashboard/StudentDashboard/MyEnrolledClasses";
+import Payment from "../pages/Dashboard/StudentDashboard/Payment";
 
 const router = createBrowserRouter([
     {
@@ -26,6 +31,25 @@ const router = createBrowserRouter([
             {
                 path: 'allclasses',
                 element: <AllClasses></AllClasses>
+            },
+        ]
+    },
+    {
+
+        path: 'dashboard',
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        children: [
+            {
+                path: 'myselectedclasses',
+                element: <MySelectedClasses></MySelectedClasses>
+            },
+            {
+                path: 'myenrolledclasses',
+                element: <MyEnrolledClasses></MyEnrolledClasses>
+            },
+            {
+                path: 'payment',
+                element: <Payment></Payment>
             }
         ]
     },

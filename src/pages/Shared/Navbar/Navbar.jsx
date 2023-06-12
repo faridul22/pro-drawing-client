@@ -17,7 +17,7 @@ const Navbar = () => {
             <Link to="/allclasses">Classes</Link>
         </li>
         {user && <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/dashboard/myselectedclasses">Dashboard</Link>
         </li>}
     </>
 
@@ -28,7 +28,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="navbar fixed z-10 bg-opacity-30 bg-[#4499B3] text-gray-70000 max-w-screen-xl rounded-md px-5">
+        <div className="navbar fixed mb-32 z-10 bg-opacity-30 bg-[#4499B3] text-gray-70000 max-w-screen-xl rounded-md px-5">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

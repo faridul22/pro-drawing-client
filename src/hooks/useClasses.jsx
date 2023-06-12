@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 const useClasses = () => {
     const { user } = useContext(AuthContext)
 
-    const { isLoading, refetch, isError, data: selectedClasses = [], error } = useQuery({
+    const { isLoading, refetch, data: selectedClasses = [], } = useQuery({
         queryKey: ['selectedclasses', user?.email],
         queryFn: async () => {
             const response = await fetch(`http://localhost:5000/selectedclasses?email=${user?.email}`)
@@ -14,7 +14,7 @@ const useClasses = () => {
             return response.json()
         },
     })
-    return [selectedClasses, isLoading, refetch]
+    return [selectedClasses, refetch, isLoading]
 };
 
 export default useClasses;
