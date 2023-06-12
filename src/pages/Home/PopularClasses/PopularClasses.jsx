@@ -1,115 +1,28 @@
+import { useEffect, useState } from "react";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import ClassesCard from "../../../components/ClassesCard/ClassesCard";
 
-/* 
-
-Image
-Name
-Instructor name
-Available seats
-Price
-*/
 
 const PopularClasses = () => {
+    const [classes, setClasses] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/classes')
+            .then(res => res.json())
+            .then(data => setClasses(data.slice(0, 6)))
+    }, [])
+
     return (
         <div>
             <SectionTitle subHeading="Here are some of our most" heading="Popular Classes"></SectionTitle>
             <div className="grid lg:grid-cols-3 gap-4 mt-10">
-                <div className="card md:mx-auto bg-base-100 shadow-xl">
-                    <figure className="px-5 pt-5">
-                        <img src="https://i.ibb.co/tZV86kR/Anatomical-Drawing.jpg" alt="Shoes" className="rounded-xl" />
-                    </figure>
-                    <div className="card-body text-center">
-                        <h2 className="text-2xl my-2">Anatomical Drawing</h2>
-                        <h4 className="text-xl font-semibold"><span className="text-[#4499B3]">Instructor:</span> Farjana</h4>
-                        <div className="flex justify-between text-center my-5">
-                            <p className="font-semibold"><span className="text-[#4499B3]">Available:</span> seats</p>
-                            <p className="font-semibold"><span className="text-[#4499B3]">Price:</span> $120</p>
-                        </div>
-                        <div className="my-2 mx-auto">
-                            <button className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Select Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="card md:mx-auto bg-base-100 shadow-xl">
-                    <figure className="px-5 pt-5">
-                        <img src="https://i.ibb.co/tZV86kR/Anatomical-Drawing.jpg" alt="Shoes" className="rounded-xl" />
-                    </figure>
-                    <div className="card-body text-center">
-                        <h2 className="text-2xl my-2">Anatomical Drawing</h2>
-                        <h4 className="text-xl font-semibold"><span className="text-[#4499B3]">Instructor:</span> Farjana</h4>
-                        <div className="flex justify-between text-center my-5">
-                            <p className="font-semibold"><span className="text-[#4499B3]">Available:</span> seats</p>
-                            <p className="font-semibold"><span className="text-[#4499B3]">Price:</span> $120</p>
-                        </div>
-                        <div className="my-2 mx-auto">
-                            <button className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Select Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="card md:mx-auto bg-base-100 shadow-xl">
-                    <figure className="px-5 pt-5">
-                        <img src="https://i.ibb.co/tZV86kR/Anatomical-Drawing.jpg" alt="Shoes" className="rounded-xl" />
-                    </figure>
-                    <div className="card-body text-center">
-                        <h2 className="text-2xl my-2">Anatomical Drawing</h2>
-                        <h4 className="text-xl font-semibold"><span className="text-[#4499B3]">Instructor:</span> Farjana</h4>
-                        <div className="flex justify-between text-center my-5">
-                            <p className="font-semibold"><span className="text-[#4499B3]">Available:</span> seats</p>
-                            <p className="font-semibold"><span className="text-[#4499B3]">Price:</span> $120</p>
-                        </div>
-                        <div className="my-2 mx-auto">
-                            <button className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Select Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="card md:mx-auto bg-base-100 shadow-xl">
-                    <figure className="px-5 pt-5">
-                        <img src="https://i.ibb.co/tZV86kR/Anatomical-Drawing.jpg" alt="Shoes" className="rounded-xl" />
-                    </figure>
-                    <div className="card-body text-center">
-                        <h2 className="text-2xl my-2">Anatomical Drawing</h2>
-                        <h4 className="text-xl font-semibold"><span className="text-[#4499B3]">Instructor:</span> Farjana</h4>
-                        <div className="flex justify-between text-center my-5">
-                            <p className="font-semibold"><span className="text-[#4499B3]">Available:</span> seats</p>
-                            <p className="font-semibold"><span className="text-[#4499B3]">Price:</span> $120</p>
-                        </div>
-                        <div className="my-2 mx-auto">
-                            <button className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Select Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="card md:mx-auto bg-base-100 shadow-xl">
-                    <figure className="px-5 pt-5">
-                        <img src="https://i.ibb.co/tZV86kR/Anatomical-Drawing.jpg" alt="Shoes" className="rounded-xl" />
-                    </figure>
-                    <div className="card-body text-center">
-                        <h2 className="text-2xl my-2">Anatomical Drawing</h2>
-                        <h4 className="text-xl font-semibold"><span className="text-[#4499B3]">Instructor:</span> Farjana</h4>
-                        <div className="flex justify-between text-center my-5">
-                            <p className="font-semibold"><span className="text-[#4499B3]">Available:</span> seats</p>
-                            <p className="font-semibold"><span className="text-[#4499B3]">Price:</span> $120</p>
-                        </div>
-                        <div className="my-2 mx-auto">
-                            <button className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Select Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="card md:mx-auto bg-base-100 shadow-xl">
-                    <figure className="px-5 pt-5">
-                        <img src="https://i.ibb.co/tZV86kR/Anatomical-Drawing.jpg" alt="Shoes" className="rounded-xl" />
-                    </figure>
-                    <div className="card-body text-center">
-                        <h2 className="text-2xl my-2">Anatomical Drawing</h2>
-                        <h4 className="text-xl font-semibold"><span className="text-[#4499B3]">Instructor:</span> Farjana</h4>
-                        <div className="flex justify-between text-center my-5">
-                            <p className="font-semibold"><span className="text-[#4499B3]">Available:</span> seats</p>
-                            <p className="font-semibold"><span className="text-[#4499B3]">Price:</span> $120</p>
-                        </div>
-                        <div className="my-2 mx-auto">
-                            <button className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Select Now</button>
-                        </div>
-                    </div>
-                </div>
+
+                {
+                    classes.map(classData => <ClassesCard
+                        key={classData._id}
+                        classData={classData}
+                    ></ClassesCard>)
+                }
 
             </div>
         </div>

@@ -12,6 +12,7 @@ const Login = () => {
     const [error, setError] = useState("")
     const [hidden, setHidden] = useState(true)
     const { signIn } = useContext(AuthContext)
+
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
