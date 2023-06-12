@@ -6,7 +6,7 @@ import useClasses from "../../hooks/useClasses";
 
 
 const ClassesCard = ({ classData }) => {
-    console.log(classData)
+    // console.log(classData)
     const { user } = useContext(AuthContext);
     const [, refetch] = useClasses()
     const navigate = useNavigate();
@@ -16,7 +16,7 @@ const ClassesCard = ({ classData }) => {
     const { classImage, className, instructorName, availableSeats, price, _id } = classData;
 
     const handleEnroll = classData => {
-        console.log(classData)
+        // console.log(classData)
         if (user && user.email) {
             const selectedClasses = { classId: _id, classImage, className, instructorName, availableSeats, price, email: user.email }
             fetch('http://localhost:5000/selectedclasses', {

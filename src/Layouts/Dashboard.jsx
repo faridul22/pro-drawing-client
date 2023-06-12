@@ -5,6 +5,11 @@ import { FaBookReader, FaBookmark, FaMoneyCheckAlt } from "react-icons/fa";
 
 
 const Dashboard = () => {
+
+    const isAdmin = true;
+    const isInstructors = false;
+    const isStudent = false;
+
     return (
         <div className="">
             <Navbar></Navbar>
@@ -19,9 +24,25 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                         {/* Sidebar content here */}
-                        <li><NavLink to="myselectedclasses"><FaBookmark />My Selected Classes</NavLink></li>
-                        <li><NavLink to="myenrolledclasses"><FaBookReader /> My Enrolled Classes</NavLink></li>
-                        <li><NavLink to="payment"><FaMoneyCheckAlt /> Payment</NavLink></li>
+                        {
+                            isAdmin && <>
+                                <li><NavLink to="manageclasses"><FaBookmark />Manage Classes</NavLink></li>
+                                <li><NavLink to="manageusers"><FaBookReader />Manage Users</NavLink></li>
+
+
+                            </> || isInstructors && <>
+                                <li><NavLink to="addAclass"><FaBookmark />Add a Class</NavLink></li>
+                                <li><NavLink to="myclasses"><FaBookReader />My Classes</NavLink></li>
+
+
+                            </> || isStudent && <>
+                                <li><NavLink to="myselectedclasses"><FaBookmark />My Selected Classes</NavLink></li>
+                                <li><NavLink to="mynrolledclasses"><FaBookReader /> My Enrolled Classes</NavLink></li>
+                                <li><NavLink to="payment"><FaMoneyCheckAlt /> Payment</NavLink></li>
+
+                            </>
+                        }
+
                     </ul>
 
                 </div>

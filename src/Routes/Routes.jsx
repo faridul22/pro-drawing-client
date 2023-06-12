@@ -10,6 +10,7 @@ import Dashboard from "../Layouts/Dashboard";
 import MySelectedClasses from "../pages/Dashboard/StudentDashboard/MySelectedClasses";
 import MyEnrolledClasses from "../pages/Dashboard/StudentDashboard/MyEnrolledClasses";
 import Payment from "../pages/Dashboard/StudentDashboard/Payment";
+import ManageUsers from "../pages/Dashboard/AdminDashboard/ManageUsers";
 
 const router = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
             {
                 path: 'payment',
                 element: <Payment></Payment>
+            },
+            {
+                path: 'manageusers',
+                element: <ManageUsers></ManageUsers>
             }
         ]
     },

@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider/AuthProvider";
-import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -58,7 +57,10 @@ const Navbar = () => {
                         <button onClick={handleLogOut} className="btn hover:bg-[#FF944B] text-white border-0 bg-[#4499B3] mx-5 normal-case">LogOut</button>
                         <div className="avatar">
                             <div className="w-[50px] rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img title={user?.displayName} src={user.photoURL ? user.photoURL : <FaUserCircle />} />
+                                {user.photoURL ?
+                                    <img title={user?.displayName} src={user.photoURL} /> :
+                                    <img title={user?.displayName} src="https://i.ibb.co/cLNMyCL/user-avata-removebg-preview.png" alt="user" />
+                                }
                             </div>
                         </div>
                     </> : <>
