@@ -27,13 +27,13 @@ const Dashboard = () => {
                         {/* Sidebar content here */}
                         {
                             isAdmin && <>
-                                <li><NavLink to="manageclasses"><FaBookmark />Manage Classes</NavLink></li>
-                                <li><NavLink to="manageusers"><FaBookReader />Manage Users</NavLink></li>
+                                <li><NavLink to="manageClasses"><FaBookmark />Manage Classes</NavLink></li>
+                                <li><NavLink to="manageUsers"><FaBookReader />Manage Users</NavLink></li>
 
 
                             </> || isInstructor && <>
-                                <li><NavLink to="addaclass"><FaBookmark />Add a Class</NavLink></li>
-                                <li><NavLink to="myclasses"><FaBookReader />My Classes</NavLink></li>
+                                <li><NavLink to="addClass"><FaBookmark />Add a Class</NavLink></li>
+                                <li><NavLink to="myClasses"><FaBookReader />My Classes</NavLink></li>
 
 
                             </> || <>
