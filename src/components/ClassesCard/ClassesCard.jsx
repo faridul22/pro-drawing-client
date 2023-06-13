@@ -3,10 +3,13 @@ import { AuthContext } from './../../providers/AuthProvider/AuthProvider';
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useClasses from "../../hooks/useClasses";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 
 const ClassesCard = ({ classData }) => {
-    // console.log(classData)
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
     const { user } = useContext(AuthContext);
     const [, refetch] = useClasses()
     const navigate = useNavigate();
@@ -56,7 +59,7 @@ const ClassesCard = ({ classData }) => {
         }
     }
     return (
-        <div className="card md:mx-auto bg-base-100 shadow-xl">
+        <div className={`card md:mx-auto shadow-xl ${availableSeats === 0 ? 'bg-red-400 ' : 'bg-base-100'}`}>
             <figure className="px-5 pt-5">
                 <img src={classImage} alt="Shoes" className="rounded-xl" />
             </figure>
@@ -68,7 +71,7 @@ const ClassesCard = ({ classData }) => {
                     <p className="font-semibold"><span className="text-[#4499B3]">Price:</span> ${price}</p>
                 </div>
                 <div className="my-2 mx-auto">
-                    <button onClick={() => handleEnroll(classData)} className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Enroll Now</button>
+                    <button disabled={isAdmin || isInstructor} onClick={() => handleEnroll(classData)} className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Enroll Now</button>
                 </div>
             </div>
         </div>
