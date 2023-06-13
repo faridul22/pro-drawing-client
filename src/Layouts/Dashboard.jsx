@@ -2,15 +2,14 @@ import { NavLink, Outlet } from "react-router-dom";
 import Navbar from "../pages/Shared/Navbar/Navbar";
 import Footer from "../pages/Shared/Footer/Footer";
 import { FaBookReader, FaBookmark, FaMoneyCheckAlt } from "react-icons/fa";
-import useAllUsers from "../hooks/useAllUsers";
+import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
 
 
 const Dashboard = () => {
-    const [allUsers, refetch] = useAllUsers();
-    console.log(allUsers)
-    const isAdmin = true;
-    const isInstructors = false;
-    const isStudent = false;
+
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
 
     return (
         <div className="">
@@ -32,14 +31,14 @@ const Dashboard = () => {
                                 <li><NavLink to="manageusers"><FaBookReader />Manage Users</NavLink></li>
 
 
-                            </> || isInstructors && <>
-                                <li><NavLink to="addAclass"><FaBookmark />Add a Class</NavLink></li>
+                            </> || isInstructor && <>
+                                <li><NavLink to="addaclass"><FaBookmark />Add a Class</NavLink></li>
                                 <li><NavLink to="myclasses"><FaBookReader />My Classes</NavLink></li>
 
 
-                            </> || isStudent && <>
+                            </> || <>
                                 <li><NavLink to="myselectedclasses"><FaBookmark />My Selected Classes</NavLink></li>
-                                <li><NavLink to="mynrolledclasses"><FaBookReader /> My Enrolled Classes</NavLink></li>
+                                <li><NavLink to="myenrolledclasses"><FaBookReader /> My Enrolled Classes</NavLink></li>
                                 <li><NavLink to="payment"><FaMoneyCheckAlt /> Payment</NavLink></li>
 
                             </>
