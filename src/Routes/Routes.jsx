@@ -18,6 +18,7 @@ import Instructors from "../pages/Instructors/Instructors";
 import InstructorsRoutes from "./InstructorsRoutes";
 import AdminRoute from './AdminRoutes';
 import Feedback from "../pages/Dashboard/AdminDashboard/Feedback";
+import UpdateClass from "../pages/Dashboard/InstructorDashboard/UpdateClass";
 
 const router = createBrowserRouter([
     {
@@ -76,6 +77,11 @@ const router = createBrowserRouter([
                 path: 'myClasses',
                 element: <InstructorsRoutes><MyClasses></MyClasses></InstructorsRoutes>
             },
+            {
+                path: 'myClasses/update/:id',
+                element: <UpdateClass></UpdateClass>,
+                loader: ({ params }) => fetch(`http://localhost:5000/classes/${params.id}`)
+            },
 
             /* Admin routes */
             {
@@ -87,8 +93,9 @@ const router = createBrowserRouter([
                 element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
             },
             {
-                path: 'manageClasses/feedback',
-                element: <AdminRoute><Feedback></Feedback></AdminRoute>
+                path: 'manageClasses/feedback/:id',
+                element: <AdminRoute><Feedback></Feedback></AdminRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/classes/${params.id}`)
             }
         ]
     },

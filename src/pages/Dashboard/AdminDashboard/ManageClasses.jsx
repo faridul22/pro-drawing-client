@@ -115,7 +115,7 @@ const ManageClasses = () => {
                                     <br />
                                     <button onClick={() => handleDenied(classData)} disabled={classData.status !== "pending"} className="btn normal-case mb-1 text-white bg-red-600 hover:bg-red-700 btn-xs">Deny</button>
                                     <br />
-                                    <Link to="feedback">
+                                    <Link to={`feedback/${classData._id}`}>
                                         <button className="btn normal-case mb-1 text-white bg-green-600 hover:bg-green-700 btn-xs">Feedback</button>
                                     </Link>
                                 </td>

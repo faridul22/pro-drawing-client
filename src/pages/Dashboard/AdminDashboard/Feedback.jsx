@@ -1,14 +1,23 @@
 import { useForm } from "react-hook-form";
 import useAllClasses from "../../../hooks/useAllClasses";
 import Swal from "sweetalert2";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const Feedback = () => {
-    const [allClasses, refetch] = useAllClasses()
+    const [, refetch] = useAllClasses();
+    const classesInfo = useLoaderData();
+    const navigate = useNavigate()
+
+    console.log(classesInfo)
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        console.log(data.feedback)
-        fetch(`http://localhost:5000/classes/feedback/${classData._id}`, {
+        console.log(data)
+        fetch(`http://localhost:5000/classes/feedback/${classesInfo._id}`, {
             method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
         })
             .then(res => res.json())
             .then(data => {
@@ -23,6 +32,8 @@ const Feedback = () => {
                         showConfirmButton: false,
                         timer: 1500
                     })
+                    navigate("/dashboard/manageClasses")
+
                 }
             })
     }
