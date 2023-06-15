@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import Navbar from "../pages/Shared/Navbar/Navbar";
 import Footer from "../pages/Shared/Footer/Footer";
-import { FaBookReader, FaBookmark, FaMoneyCheckAlt } from "react-icons/fa";
+import { FaBook, FaBookReader, FaBookmark, FaMoneyCheckAlt, FaTelegram, FaTools, FaUsersCog } from "react-icons/fa";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
 
@@ -27,19 +27,19 @@ const Dashboard = () => {
                         {/* Sidebar content here */}
                         {
                             isAdmin && <>
-                                <li><NavLink to="manageClasses"><FaBookmark />Manage Classes</NavLink></li>
-                                <li><NavLink to="manageUsers"><FaBookReader />Manage Users</NavLink></li>
+                                <li><NavLink to="manageClasses"><FaTools className="text-lg" />Manage Classes</NavLink></li>
+                                <li><NavLink to="manageUsers"><FaUsersCog className="text-xl" />Manage Users</NavLink></li>
 
 
                             </> || isInstructor && <>
-                                <li><NavLink to="addClass"><FaBookmark />Add a Class</NavLink></li>
-                                <li><NavLink to="myClasses"><FaBookReader />My Classes</NavLink></li>
+                                <li><NavLink to="addClass"><FaTelegram className="text-xl" />Add a Class</NavLink></li>
+                                <li><NavLink to="myClasses"><FaBook className="text-xl" />My Classes</NavLink></li>
 
 
                             </> || <>
-                                <li><NavLink to="myselectedclasses"><FaBookmark />My Selected Classes</NavLink></li>
-                                <li><NavLink to="myenrolledclasses"><FaBookReader /> My Enrolled Classes</NavLink></li>
-                                <li><NavLink to="payment"><FaMoneyCheckAlt /> Payment</NavLink></li>
+                                <li><NavLink to="myselectedclasses"><FaBookmark className="text-lg" />Selected Classes</NavLink></li>
+                                <li><NavLink to="myenrolledclasses"><FaBookReader className="text-xl" /> Enrolled Classes</NavLink></li>
+                                <li><NavLink to="paymentHistory"><FaMoneyCheckAlt className="text-xl" /> Payment History</NavLink></li>
 
                             </>
                         }

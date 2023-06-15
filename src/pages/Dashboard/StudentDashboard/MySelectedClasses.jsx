@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import useClasses from "../../../hooks/useClasses";
 import { FaPaypal, FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const MySelectedClasses = () => {
@@ -79,7 +80,9 @@ const MySelectedClasses = () => {
                                 <td>{classData.instructorName}</td>
                                 <td>Price: ${classData.price}</td>
                                 <th>
-                                    <button className="btn btn-circle btn-outline bg-green-600 text-white hover:bg-green-700 btn-sm"><FaPaypal /></button>
+                                    <Link to={`payment/${classData._id}`}>
+                                        <button className="btn btn-circle btn-outline bg-green-600 text-white hover:bg-green-700 btn-sm"><FaPaypal /></button>
+                                    </Link>
                                 </th>
                                 <th>
                                     <button onClick={() => handleDelete(classData)} className="btn btn-circle btn-outline bg-red-600 text-white hover:bg-red-700 btn-sm"><FaTrash /></button>

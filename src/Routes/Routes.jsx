@@ -19,6 +19,7 @@ import InstructorsRoutes from "./InstructorsRoutes";
 import AdminRoute from './AdminRoutes';
 import Feedback from "../pages/Dashboard/AdminDashboard/Feedback";
 import UpdateClass from "../pages/Dashboard/InstructorDashboard/UpdateClass";
+import PaymentHistory from "../pages/Dashboard/StudentDashboard/PaymentHistory";
 
 const router = createBrowserRouter([
     {
@@ -64,8 +65,13 @@ const router = createBrowserRouter([
                 element: <MyEnrolledClasses></MyEnrolledClasses>
             },
             {
-                path: 'payment',
-                element: <Payment></Payment>
+                path: 'myselectedclasses/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/selectedclasses/${params.id}`)
+            },
+            {
+                path: 'paymentHistory',
+                element: <PaymentHistory></PaymentHistory>
             },
 
             /* Instructor route */
