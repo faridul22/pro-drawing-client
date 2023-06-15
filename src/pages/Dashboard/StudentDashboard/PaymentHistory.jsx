@@ -1,6 +1,10 @@
+import moment from "moment";
+import usePaymentData from "../../../hooks/usePaymentData";
 
 
 const PaymentHistory = () => {
+    const [paymentData] = usePaymentData();
+    console.log(paymentData)
     return (
         <div>
             <h3>Payment History</h3>
@@ -9,34 +13,23 @@ const PaymentHistory = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>#</th>
                             <th>Class Name</th>
                             <th>TransactionId</th>
                             <th>Payment Date</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {/* row 1 */}
-                        <tr>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <td>Blue</td>
-                        </tr>
-                        {/* row 2 */}
-                        <tr className="hover">
-                            <th>2</th>
-                            <td>Hart Hagerty</td>
-                            <td>Desktop Support Technician</td>
-                            <td>Purple</td>
-                        </tr>
-                        {/* row 3 */}
-                        <tr>
-                            <th>3</th>
-                            <td>Brice Swyre</td>
-                            <td>Tax Accountant</td>
-                            <td>Red</td>
-                        </tr>
+                        {
+                            paymentData.map((item, i) => <tr key={item._id}>
+                                <th>{i + 1}</th>
+                                <td className="font-bold">{item.className}</td>
+                                <td>
+                                    <span className="text-green-600 border-2 rounded-md p-1">{item.transactionId}</span>
+                                </td>
+                                <td className="font-semibold">{moment(item.date).format("LLL")}</td>
+                            </tr>)
+                        }
                     </tbody>
                 </table>
             </div>

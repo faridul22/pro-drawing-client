@@ -3,7 +3,7 @@ import useAuth from "./useAuth";
 import useAxiosSecure from "./useAxiosSecure";
 
 
-const usePaymentDate = () => {
+const usePaymentData = () => {
     const { user, loading } = useAuth()
     const [axiosSecure] = useAxiosSecure();
 
@@ -19,4 +19,4 @@ const usePaymentDate = () => {
     return [paymentData, refetch, isLoading]
 };
 
-export default usePaymentDate;
+export default usePaymentData;

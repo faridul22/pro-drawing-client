@@ -1,10 +1,10 @@
 import { Helmet } from "react-helmet-async";
-import usePaymentDate from "../../../hooks/usePaymentDate";
+import usePaymentData from "../../../hooks/usePaymentData";
 import moment from "moment/moment";
 
 
 const MyEnrolledClasses = () => {
-    const [paymentData] = usePaymentDate();
+    const [paymentData] = usePaymentData();
     console.log(paymentData)
     return (
         <div>
@@ -41,9 +41,9 @@ const MyEnrolledClasses = () => {
                                     </div>
                                 </td>
                                 <td>
-                                    <span className="font-bold text-center text-green-500 uppercase">{item.enrollStatus}</span>
+                                    <span className="font-bold text-center text-green-500 ">Status: {item.enrollStatus}</span>
                                     <br />
-                                    <span className="badge bg-slate-200 badge-sm"> {moment(item.date).format("MMM Do YY")}</span>
+                                    <span className="badge bg-slate-200 badge-sm">Date: {moment(item.date).format("L")}</span>
                                 </td>
                                 <td className="mx-auto">
                                     <span className="badge bg-slate-200 badge-sm text-center">Student ID: {item._id.slice(8, 20)}</span>
