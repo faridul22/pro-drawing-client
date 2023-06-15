@@ -14,7 +14,7 @@ const UpdateClass = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        fetch(`http://localhost:5000/classes/${_id}`, {
+        fetch(`https://pro-drawing-server.vercel.app/classes/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

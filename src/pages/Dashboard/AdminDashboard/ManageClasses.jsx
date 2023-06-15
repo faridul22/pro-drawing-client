@@ -16,7 +16,7 @@ const ManageClasses = () => {
     const [allClasses, refetch] = useAllClasses()
 
     const handleApproved = classData => {
-        fetch(`http://localhost:5000/classes/approved/${classData._id}`, {
+        fetch(`https://pro-drawing-server.vercel.app/classes/approved/${classData._id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())
@@ -27,7 +27,7 @@ const ManageClasses = () => {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: `${classData.name} is approved Now`,
+                        title: `Your Class is approved Now`,
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -36,7 +36,7 @@ const ManageClasses = () => {
     }
 
     const handleDenied = classData => {
-        fetch(`http://localhost:5000/classes/denied/${classData._id}`, {
+        fetch(`https://pro-drawing-server.vercel.app/classes/denied/${classData._id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())
@@ -47,7 +47,7 @@ const ManageClasses = () => {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: `${classData.name} is denied Now`,
+                        title: `Your Class is denied Now`,
                         showConfirmButton: false,
                         timer: 1500
                     })

@@ -67,7 +67,7 @@ const router = createBrowserRouter([
             {
                 path: 'myselectedclasses/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/selectedclasses/${params.id}`)
+                loader: ({ params }) => fetch(`https://pro-drawing-server.vercel.app/selectedclasses/${params.id}`)
             },
             {
                 path: 'paymentHistory',
@@ -86,7 +86,7 @@ const router = createBrowserRouter([
             {
                 path: 'myClasses/update/:id',
                 element: <UpdateClass></UpdateClass>,
-                loader: ({ params }) => fetch(`http://localhost:5000/classes/${params.id}`)
+                loader: ({ params }) => fetch(`https://pro-drawing-server.vercel.app/classes/${params.id}`)
             },
 
             /* Admin routes */
@@ -101,7 +101,7 @@ const router = createBrowserRouter([
             {
                 path: 'manageClasses/feedback/:id',
                 element: <AdminRoute><Feedback></Feedback></AdminRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/classes/${params.id}`)
+                loader: ({ params }) => fetch(`https://pro-drawing-server.vercel.app/classes/${params.id}`)
             }
         ]
     },

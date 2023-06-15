@@ -22,7 +22,7 @@ const ClassesCard = ({ classData }) => {
         // console.log(classData)
         if (user && user.email) {
             const selectedClasses = { classId: _id, classImage, className, instructorName, availableSeats, totalStudent, price, email: user.email }
-            fetch('http://localhost:5000/selectedclasses', {
+            fetch('https://pro-drawing-server.vercel.app/selectedclasses', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",

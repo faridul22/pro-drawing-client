@@ -6,7 +6,7 @@ const AllClasses = () => {
     const [classes, setClasses] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/approvedclasses')
+        fetch('https://pro-drawing-server.vercel.app/approvedclasses')
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])

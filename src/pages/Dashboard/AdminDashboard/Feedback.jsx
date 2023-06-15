@@ -12,7 +12,7 @@ const Feedback = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data)
-        fetch(`http://localhost:5000/classes/feedback/${classesInfo._id}`, {
+        fetch(`https://pro-drawing-server.vercel.app/classes/feedback/${classesInfo._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

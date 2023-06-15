@@ -6,13 +6,13 @@ import useAllUsers from "../../../hooks/useAllUsers";
 
 const ManageUsers = () => {
     // const { data: allUsers, refetch } = useQuery(['users'], async () => {
-    //     const res = await fetch('http://localhost:5000/users')
+    //     const res = await fetch('https://pro-drawing-server.vercel.app/users')
     //     return res.json()
     // })
     const [allUsers, refetch] = useAllUsers();
 
     const handleMakeAdmin = user => {
-        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+        fetch(`https://pro-drawing-server.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())
@@ -33,7 +33,7 @@ const ManageUsers = () => {
     }
 
     const handleMakeInstructor = user => {
-        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+        fetch(`https://pro-drawing-server.vercel.app/users/instructor/${user._id}`, {
             method: 'PATCH',
         })
             .then(res => res.json())
