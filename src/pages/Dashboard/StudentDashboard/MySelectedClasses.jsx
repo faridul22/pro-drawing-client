@@ -42,6 +42,7 @@ const MySelectedClasses = () => {
             <Helmet>
                 <title>Pro Drawing | My selected classes</title>
             </Helmet>
+            {/* TODO:  */}
             {/* <h3>My selected classes: {selectedClasses.length}</h3>
             <h3>My selected classes price total: {total}</h3> */}
             <h3 className="text-center text-2xl my-2">My Selected Classes</h3>

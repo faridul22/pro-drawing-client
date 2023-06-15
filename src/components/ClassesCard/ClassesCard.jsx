@@ -16,12 +16,12 @@ const ClassesCard = ({ classData }) => {
     const location = useLocation();
 
 
-    const { classImage, className, instructorName, availableSeats, price, _id } = classData;
+    const { classImage, className, instructorName, availableSeats, totalStudent, price, _id } = classData;
 
     const handleEnroll = classData => {
         // console.log(classData)
         if (user && user.email) {
-            const selectedClasses = { classId: _id, classImage, className, instructorName, availableSeats, price, email: user.email }
+            const selectedClasses = { classId: _id, classImage, className, instructorName, availableSeats, totalStudent, price, email: user.email }
             fetch('http://localhost:5000/selectedclasses', {
                 method: "POST",
                 headers: {
@@ -71,7 +71,7 @@ const ClassesCard = ({ classData }) => {
                     <p className="font-semibold"><span className="text-[#4499B3]">Price:</span> ${price}</p>
                 </div>
                 <div className="my-2 mx-auto">
-                    <button disabled={isAdmin || isInstructor} onClick={() => handleEnroll(classData)} className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Enroll Now</button>
+                    <button disabled={isAdmin || isInstructor || availableSeats === 0} onClick={() => handleEnroll(classData)} className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Enroll Now</button>
                 </div>
             </div>
         </div>

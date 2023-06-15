@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import './CheckoutForm.css'
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ classData, price }) => {
     const stripe = useStripe();
@@ -12,7 +15,8 @@ const CheckoutForm = ({ classData, price }) => {
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false);
-    const [transactionId, setTransactionId] = useState('')
+    const [transactionId, setTransactionId] = useState('');
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (price > 0) {
@@ -83,13 +87,24 @@ const CheckoutForm = ({ classData, price }) => {
                 className: classData.className,
                 classImage: classData.classImage,
                 instructorName: classData.instructorName,
+                availableSeats: classData.availableSeats,
+                totalStudent: classData.totalStudent,
                 enrollStatus: 'pending',
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
                     console.log(res.data)
-                    if (res.data.insertResult.insertedId) {
+                    if (res.data.updateResult) {
                         // display confirm
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Your work has been saved',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        // TODO:
+                        navigate('/')
                     }
                 })
         }
