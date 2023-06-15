@@ -1,10 +1,14 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider/AuthProvider";
+import useAdmin from "../../../hooks/useAdmin";
+import useInstructor from "../../../hooks/useInstructor";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor()
 
     const navItems = <>
         <li>
@@ -16,9 +20,11 @@ const Navbar = () => {
         <li>
             <Link to="/allclasses">Classes</Link>
         </li>
-        {user && <li>
-            <Link to="/dashboard/">Dashboard</Link>
-        </li>}
+        {
+            user && <li>
+                <Link to={isAdmin && "/dashboard/manageClasses" || isInstructor && "/dashboard/addClass" || "/dashboard/myselectedclasses"}>Dashboard</Link>
+            </li>
+        }
     </>
 
     const handleLogOut = () => {

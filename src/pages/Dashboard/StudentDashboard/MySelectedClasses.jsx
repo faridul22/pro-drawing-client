@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 const MySelectedClasses = () => {
     const [selectedClasses, refetch] = useClasses();
-    // const total = selectedClasses.reduce((sum, classData) => classData.price + sum, 0)
 
     const handleDelete = classData => {
         Swal.fire({
@@ -42,10 +41,8 @@ const MySelectedClasses = () => {
             <Helmet>
                 <title>Pro Drawing | My selected classes</title>
             </Helmet>
-            {/* TODO:  */}
-            {/* <h3>My selected classes: {selectedClasses.length}</h3>
-            <h3>My selected classes price total: {total}</h3> */}
-            <h3 className="text-center text-2xl my-2">My Selected Classes</h3>
+            <h3 className="uppercase text-3xl mb-5 font-semibold text-center">My selected classes: {selectedClasses.length}</h3>
+
             {/* Table */}
             <div className="overflow-x-auto">
                 <table className="table">
@@ -54,7 +51,7 @@ const MySelectedClasses = () => {
                         <tr>
                             <th># </th>
                             <th>Image</th>
-                            <th>Name</th>
+                            <th>Class</th>
                             <th>Instructor</th>
                             <th>Price</th>
                             <th>Payment</th>
@@ -74,7 +71,7 @@ const MySelectedClasses = () => {
                                     </div>
                                 </td>
                                 <td>
-                                    <div className="font-bold ">{classData.instructorName}</div>
+                                    <div className="font-bold ">{classData.className}</div>
                                     <br />
                                     <span className="text-sm opacity-50">Available: {classData.availableSeats} Seats</span>
                                 </td>

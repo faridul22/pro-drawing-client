@@ -89,7 +89,7 @@ const CheckoutForm = ({ classData, price }) => {
                 instructorName: classData.instructorName,
                 availableSeats: classData.availableSeats,
                 totalStudent: classData.totalStudent,
-                enrollStatus: 'pending',
+                enrollStatus: 'Success',
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
