@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useMyClasses from "../../../hooks/useMyClasses";
 
 
 const UpdateClass = () => {
     const singleClassData = useLoaderData();
+    const navigate = useNavigate();
     const [, refetch] = useMyClasses();
     const { _id, className, classImage, availableSeats, price } = singleClassData;
 
@@ -33,6 +34,7 @@ const UpdateClass = () => {
                         showConfirmButton: false,
                         timer: 1500
                     })
+                    navigate("/dashboard/myClasses")
                 }
             })
         console.log(data)
@@ -40,7 +42,7 @@ const UpdateClass = () => {
     return (
         <div className='container mx-auto w-3/4 my-16'>
             <div className='border-4 border-cyan-200 p-10 rounded-lg  bg-cyan-50'>
-                <h1 className='text-center text-3xl text-gray-700 mb-5 font-semibold'>Add A New Class</h1>
+                <h1 className='text-center text-3xl text-gray-700 mb-5 font-semibold'>Update: {className}</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='grid lg:grid-cols-1'>
                         {/* Class name */}

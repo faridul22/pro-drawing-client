@@ -14,8 +14,6 @@ import { Link } from "react-router-dom";
 const ManageClasses = () => {
 
     const [allClasses, refetch] = useAllClasses()
-    console.log(allClasses)
-    // { className, classImage, instructorName, instructorEmail, availableSeats, price, status, }
 
     const handleApproved = classData => {
         fetch(`http://localhost:5000/classes/approved/${classData._id}`, {
@@ -63,7 +61,7 @@ const ManageClasses = () => {
                 <title>Pro Drawing | Manage Classes</title>
             </Helmet>
             <h3 className="text-center text-2xl my-2">Manage All Class</h3>
-            <h3 className="text-3xl font-semibold">Total Users: {allClasses?.length}</h3>
+            <h3 className="text-3xl font-semibold">Total Class: {allClasses?.length}</h3>
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
                     {/* head */}

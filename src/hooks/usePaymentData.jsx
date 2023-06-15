@@ -4,12 +4,12 @@ import useAxiosSecure from "./useAxiosSecure";
 
 
 const usePaymentData = () => {
-    const { user, loading } = useAuth()
+    const { user } = useAuth()
     const [axiosSecure] = useAxiosSecure();
 
     const { isLoading, refetch, data: paymentData = [], } = useQuery({
         queryKey: ['paymentData', user?.email],
-        enabled: !loading,
+        enabled: !!user?.email && !!localStorage.getItem("access-token"),
         queryFn: async () => {
             const response = await axiosSecure.get(`/paymentData?email=${user?.email}`)
 

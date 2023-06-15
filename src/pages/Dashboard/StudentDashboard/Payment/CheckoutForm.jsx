@@ -99,12 +99,12 @@ const CheckoutForm = ({ classData, price }) => {
                         Swal.fire({
                             position: 'center',
                             icon: 'success',
-                            title: 'Your work has been saved',
+                            title: 'Your payment is Success',
                             showConfirmButton: false,
                             timer: 1500
                         })
                         // TODO:
-                        navigate('/')
+                        navigate("/dashboard/myselectedclasses")
                     }
                 })
         }
