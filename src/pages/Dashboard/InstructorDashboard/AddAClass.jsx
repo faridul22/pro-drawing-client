@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const imgHostingToken = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 
@@ -51,84 +52,89 @@ const AddAClass = () => {
     };
 
     return (
-        <div className='container mx-auto w-3/4 my-16'>
-            <div className='border-4 border-cyan-200 p-10 rounded-lg  bg-cyan-50'>
-                <h1 className='text-center text-3xl text-gray-700 mb-5 font-semibold'>Add A New Class</h1>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className='grid lg:grid-cols-1'>
-                        {/* Class name */}
-                        <div className="form-control my-3 mx-3">
-                            <label className="label">
-                                <span className="label-text font-bold">Class Name</span>
-                            </label>
-                            <label className="">
-                                <input {...register("className", { required: true })} type="text" name='className' placeholder="Class name" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-                        {/* Class image */}
+        <>
+            <Helmet>
+                <title>Pro Drawing | Add a Class</title>
+            </Helmet>
+            <div className='container mx-auto w-3/4 my-16'>
+                <div className='border-4 border-cyan-200 p-10 rounded-lg  bg-cyan-50'>
+                    <h1 className='text-center text-3xl text-gray-700 mb-5 font-semibold'>Add A New Class</h1>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className='grid lg:grid-cols-1'>
+                            {/* Class name */}
+                            <div className="form-control my-3 mx-3">
+                                <label className="label">
+                                    <span className="label-text font-bold">Class Name</span>
+                                </label>
+                                <label className="">
+                                    <input {...register("className", { required: true })} type="text" name='className' placeholder="Class name" className="input input-bordered w-full" />
+                                </label>
+                            </div>
+                            {/* Class image */}
 
-                        <div className="form-control my-3 mx-3">
-                            <label className="label">
-                                <span className="label-text font-bold">Class image URL</span>
-                            </label>
-                            <input {...register("classImage", { required: true })} type="file" name='classImage' className="file-input file-input-bordered w-full" />
+                            <div className="form-control my-3 mx-3">
+                                <label className="label">
+                                    <span className="label-text font-bold">Class image URL</span>
+                                </label>
+                                <input {...register("classImage", { required: true })} type="file" name='classImage' className="file-input file-input-bordered w-full" />
+                            </div>
+                            {/* Available seats */}
+                            <div className="form-control my-3 mx-3">
+                                <label className="label">
+                                    <span className="label-text font-bold">Available Seats</span>
+                                </label>
+                                <label className="">
+                                    <input {...register("availableSeats", { required: true })} type="number" name='availableSeats' placeholder="available seats" className="input input-bordered w-full" />
+                                </label>
+                            </div>
+                            {/* Price */}
+                            <div className="form-control my-3 mx-3">
+                                <label className="label">
+                                    <span className="label-text font-bold">Price</span>
+                                </label>
+                                <label className="label">
+                                    <input {...register("price", { required: true })} type="number" name='price' placeholder="price" className="input input-bordered w-full" />
+                                </label>
+                            </div>
+                            {/* Instructor info */}
+                            <div className="form-control my-3 mx-3">
+                                <label className="label">
+                                    <span className="label-text font-bold">Instructor name</span>
+                                </label>
+                                <label className="">
+                                    <input {...register("instructorName", { required: true })} value={user && user?.displayName} type="text" name='instructorName' placeholder="instructor name" className="input input-bordered w-full" />
+                                </label>
+                            </div>
+                            <div className="form-control my-3 mx-3">
+                                <label className="label">
+                                    <span className="label-text font-bold">Instructor email</span>
+                                </label>
+                                <label className="">
+                                    <input {...register("instructorEmail", { required: true })} value={user && user?.email} type="email" name='instructorEmail' placeholder="instructor email" className="input input-bordered w-full" />
+                                </label>
+                            </div>
+                            <div className="form-control my-3 mx-3">
+                                <label className="label">
+                                    <span className="label-text font-bold">Instructor photo URL</span>
+                                </label>
+                                <label className="label">
+                                    {user.photoURL ?
+                                        <input {...register("instructorImage", { required: true })} value={user && user?.photoURL} type="url" name='instructorImage' placeholder="instructor photo url" className="input input-bordered w-full" /> :
+                                        <input {...register("instructorImage", { required: true })} type="url" name='instructorImage' placeholder="instructor photo url" className="input input-bordered w-full" />
+                                    }
+                                </label>
+                            </div>
                         </div>
-                        {/* Available seats */}
-                        <div className="form-control my-3 mx-3">
-                            <label className="label">
-                                <span className="label-text font-bold">Available Seats</span>
-                            </label>
-                            <label className="">
-                                <input {...register("availableSeats", { required: true })} type="number" name='availableSeats' placeholder="available seats" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-                        {/* Price */}
-                        <div className="form-control my-3 mx-3">
-                            <label className="label">
-                                <span className="label-text font-bold">Price</span>
-                            </label>
-                            <label className="label">
-                                <input {...register("price", { required: true })} type="number" name='price' placeholder="price" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-                        {/* Instructor info */}
-                        <div className="form-control my-3 mx-3">
-                            <label className="label">
-                                <span className="label-text font-bold">Instructor name</span>
-                            </label>
-                            <label className="">
-                                <input {...register("instructorName", { required: true })} value={user && user?.displayName} type="text" name='instructorName' placeholder="instructor name" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-                        <div className="form-control my-3 mx-3">
-                            <label className="label">
-                                <span className="label-text font-bold">Instructor email</span>
-                            </label>
-                            <label className="">
-                                <input {...register("instructorEmail", { required: true })} value={user && user?.email} type="email" name='instructorEmail' placeholder="instructor email" className="input input-bordered w-full" />
-                            </label>
-                        </div>
-                        <div className="form-control my-3 mx-3">
-                            <label className="label">
-                                <span className="label-text font-bold">Instructor photo URL</span>
-                            </label>
-                            <label className="label">
-                                {user.photoURL ?
-                                    <input {...register("instructorImage", { required: true })} value={user && user?.photoURL} type="url" name='instructorImage' placeholder="instructor photo url" className="input input-bordered w-full" /> :
-                                    <input {...register("instructorImage", { required: true })} type="url" name='instructorImage' placeholder="instructor photo url" className="input input-bordered w-full" />
-                                }
-                            </label>
-                        </div>
-                    </div>
 
-                    {/* submit */}
-                    <div className="form-control my-3 m-3">
-                        <input className="btn bg-[#4499B3] border-none hover:bg-orange-500  text-white normal-case text-xl font-semibold" type="submit" value="Add Now" />
-                    </div>
+                        {/* submit */}
+                        <div className="form-control my-3 m-3">
+                            <input className="btn bg-[#4499B3] border-none hover:bg-orange-500  text-white normal-case text-xl font-semibold" type="submit" value="Add Now" />
+                        </div>
 
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

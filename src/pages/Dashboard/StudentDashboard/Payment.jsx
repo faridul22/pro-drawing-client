@@ -16,15 +16,17 @@ const Payment = () => {
     console.log(classData)
 
     return (
-        <div>
+        <>
             <Helmet>
                 <title>Pro Drawing | Payment</title>
             </Helmet>
-            <h3 className="text-2xl">Please Payment confirm for Successfully Enrolled</h3>
-            <Elements stripe={stripePromise}>
-                <CheckoutForm classData={classData} price={price}></CheckoutForm>
-            </Elements>
-        </div>
+            <div>
+                <h3 className="text-2xl">Please Payment confirm for Successfully Enrolled</h3>
+                <Elements stripe={stripePromise}>
+                    <CheckoutForm classData={classData} price={price}></CheckoutForm>
+                </Elements>
+            </div>
+        </>
     );
 };
 

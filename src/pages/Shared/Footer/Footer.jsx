@@ -27,12 +27,12 @@ const Footer = () => {
 
                     <div className="md:w-1/2">
                         <span className="footer-title">Newsletter</span>
-                        <div className="form-control w-80">
+                        <div className="form-control w-64">
                             <label className="label">
                                 <span className="label-text">Enter your email address</span>
                             </label>
                             <div className="relative">
-                                <input type="email" placeholder="username@site.com" className="input input-bordered w-full sm:pr-5 lg:pr-16" />
+                                <input type="email" placeholder="enter your email" className="input input-bordered w-full sm:pr-5 lg:pr-16" />
                                 <button className="btn hover:bg-[#FF944B] text-white border-0 bg-[#4499B3] absolute top-0 right-0 rounded-l-none">Subscribe</button>
                             </div>
                         </div>

@@ -5,10 +5,7 @@ import useAllUsers from "../../../hooks/useAllUsers";
 
 
 const ManageUsers = () => {
-    // const { data: allUsers, refetch } = useQuery(['users'], async () => {
-    //     const res = await fetch('https://pro-drawing-server.vercel.app/users')
-    //     return res.json()
-    // })
+
     const [allUsers, refetch] = useAllUsers();
 
     const handleMakeAdmin = user => {

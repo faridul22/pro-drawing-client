@@ -1,7 +1,7 @@
 
 
 const InstructorsCard = ({ instructor }) => {
-    console.log(instructor)
+    // console.log(instructor)
     const { name, image, email } = instructor;
     return (
         <div className="card md:mx-auto shadow-sm border border-orange-200 w-full">

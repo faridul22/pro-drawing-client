@@ -4,7 +4,7 @@ import { AuthContext } from "../../../providers/AuthProvider/AuthProvider";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
 
-const Navbar = () => {
+const Navbar = ({ toggleDarkMode }) => {
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
     const [isAdmin] = useAdmin();
@@ -57,6 +57,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                <input onClick={() => toggleDarkMode(true)} type="checkbox" className="toggle toggle-warning" />
                 {
                     user ? <>
 

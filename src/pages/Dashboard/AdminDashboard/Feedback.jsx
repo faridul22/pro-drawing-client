@@ -2,16 +2,17 @@ import { useForm } from "react-hook-form";
 import useAllClasses from "../../../hooks/useAllClasses";
 import Swal from "sweetalert2";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Feedback = () => {
     const [, refetch] = useAllClasses();
     const classesInfo = useLoaderData();
     const navigate = useNavigate()
 
-    console.log(classesInfo)
+    // console.log(classesInfo)
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        console.log(data)
+        // console.log(data)
         fetch(`https://pro-drawing-server.vercel.app/classes/feedback/${classesInfo._id}`, {
             method: 'PATCH',
             headers: {
@@ -38,27 +39,32 @@ const Feedback = () => {
             })
     }
     return (
-        <div className='container mx-auto w-3/4 my-16'>
-            <div className='border-4 border-[#50bbdb] p-10 rounded-lg  bg-[#9fe3f8]'>
-                <h1 className='text-center text-3xl text-red-500 mb-5 font-bold'>Enter Your Feedback</h1>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    {/* description */}
-                    <div className="form-control my-3 m-3">
-                        <label className="label">
-                            <span className="label-text font-bold">Write your feedback below</span>
-                        </label>
-                        <label>
-                            <textarea {...register("feedback", { required: true })} name='feedback' className="textarea textarea-bordered border-2 w-full h-[300px]" placeholder="Enter your details feedback"></textarea>
-                        </label>
-                    </div>
-                    {/* submit */}
-                    <div className="form-control my-3 m-3">
-                        <input className="btn bg-[#4499B3] border-none hover:bg-orange-500  text-white normal-case text-xl font-semibold" type="submit" value="Send Feedback" />
-                    </div>
+        <>
+            <Helmet>
+                <title>Pro Drawing | Feedback</title>
+            </Helmet>
+            <div className='container mx-auto w-3/4 my-16'>
+                <div className='border-4 border-[#50bbdb] p-10 rounded-lg  bg-[#9fe3f8]'>
+                    <h1 className='text-center text-3xl text-red-500 mb-5 font-bold'>Enter Your Feedback</h1>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        {/* description */}
+                        <div className="form-control my-3 m-3">
+                            <label className="label">
+                                <span className="label-text font-bold">Write your feedback below</span>
+                            </label>
+                            <label>
+                                <textarea {...register("feedback", { required: true })} name='feedback' className="textarea textarea-bordered border-2 w-full h-[300px]" placeholder="Enter your details feedback"></textarea>
+                            </label>
+                        </div>
+                        {/* submit */}
+                        <div className="form-control my-3 m-3">
+                            <input className="btn bg-[#4499B3] border-none hover:bg-orange-500  text-white normal-case text-xl font-semibold" type="submit" value="Send Feedback" />
+                        </div>
 
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
