@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -6,22 +6,27 @@ import Swal from 'sweetalert2';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { sendPasswordResetEmail } from 'firebase/auth';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [error, setError] = useState("")
     const [hidden, setHidden] = useState(true)
-    const { signIn } = useContext(AuthContext)
+    const { signIn, auth } = useContext(AuthContext)
 
+    // -----Code for relocated-----
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
+    //-----------Code for Reset password----------
+    const emailRef = useRef();
+    const { ref, ...rest } = register('email');
 
-
+    // -------from submission------
     const onSubmit = data => {
-        setError("")
 
+        setError("")
         signIn(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
@@ -42,6 +47,33 @@ const Login = () => {
 
     };
 
+    // ---------Reset password---------
+    const handleResetPassword = () => {
+        const email = emailRef.current.value;
+        if (!email) {
+            Swal.fire({
+                position: 'top-center',
+                icon: 'warning',
+                title: 'Please provide Email address to reset password',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            return
+        }
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'info',
+                    title: 'Check your email to reset password',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+    }
 
 
     return (
@@ -65,9 +97,21 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered" />
+                                    <input
+                                        type="email"
+                                        {...register("email", { required: true })}
+                                        {...rest}
+                                        name="email"
+                                        ref={(e) => {
+                                            ref(e);
+                                            emailRef.current = e;
+                                        }}
+                                        placeholder="email"
+                                        className="input input-bordered"
+                                    />
                                     {errors.email && <span className="text-red-600">email is required</span>}
                                 </div>
+
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
@@ -79,7 +123,7 @@ const Login = () => {
                                     {errors.password?.type === 'required' && <p className="text-red-600">password is required</p>}
                                     {error && <p className='text-red-600'>{error}</p>}
                                     <label className="label">
-                                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                        <a onClick={handleResetPassword} className="label-text-alt link text-blue-600">Forgot password?</a>
                                     </label>
                                 </div>
 
@@ -88,7 +132,7 @@ const Login = () => {
                                     <input disabled={false} className="btn hover:bg-[#FF944B] text-white border-0 bg-[#4499B3] mx-5 normal-case" type="submit" value="Login" />
                                 </div>
                                 <label className="label">
-                                    <p className='text-center text-gray-500-400 font-medium'><small>New here? <Link to="/register"><span className='hover:text-blue-700 text-blue-600'>Create a New Account</span></Link></small></p>
+                                    <p className='text-center text-gray-500-400 font-medium'><small>New here? <Link to="/register"><span className='hover:text-blue-700 text-blue-600 link'>Create a New Account</span></Link></small></p>
                                 </label>
                             </form>
                             <SocialLogin></SocialLogin>

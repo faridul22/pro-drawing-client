@@ -71,7 +71,7 @@ const ClassesCard = ({ classData }) => {
                     <p className="font-semibold"><span className="text-[#4499B3]">Price:</span> ${price}</p>
                 </div>
                 <div className="my-2 mx-auto">
-                    <button disabled={isAdmin || isInstructor || availableSeats === 0} onClick={() => handleEnroll(classData)} className="btn bg-[#4499B3] text-white border-0 hover:bg-[#FF944B]">Enroll Now</button>
+                    <button disabled={isAdmin || isInstructor || availableSeats === 0} onClick={() => handleEnroll(classData)} className="border-0 border-b-4 border-[#FF944B] hover:border-[#4499B3] btn bg-[#4499B3] text-white hover:bg-[#FF944B]">Enroll Now</button>
                 </div>
             </div>
         </div>
